@@ -1,5 +1,5 @@
 'use client'
-import { CreditCard, GanttChart, Home, Settings, User } from 'lucide-react';
+import { CreditCard, GanttChart, Home, Settings } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -26,11 +26,7 @@ const SideMenu = () => {
                 path='/dashboard/user/page/balance'
                 icon={<GanttChart className='w-4 h-4'/>}
                 />
-                <SideItem
-                title='castomers'
-                path='/dashboard/user/page/castomers'
-                icon={<User className='w-4 h-4'/>}
-                />
+                
                 <SideItem
                 title='setting'
                 path='/dashboard/user/page/setting'

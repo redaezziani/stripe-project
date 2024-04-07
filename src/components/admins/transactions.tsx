@@ -13,7 +13,6 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Transaction = () => {
     const {data:transaction , error} = useSWR('/api/admin/transactions', fetcher,{refreshInterval: 5000 });
-    
     const columns: ColumnDef[] = [
         {
             accessorKey: 'id',

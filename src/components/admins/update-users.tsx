@@ -35,7 +35,7 @@ const UpdateUserDialog: React.FC<UpdateUserProps> = ({ id, email, name, role }) 
     const handleSubmit = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`http://localhost:3000/api/admin/castomers`, {
+            const res = await fetch(`/api/admin/castomers`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

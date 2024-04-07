@@ -60,7 +60,7 @@ const UpdateTransactionDialog: React.FC<UpdateTransactionProps> = ({ id, email, 
     const handleSubmit = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`http://localhost:3000/api/admin/transactions`, {
+            const res = await fetch(`/api/admin/transactions`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

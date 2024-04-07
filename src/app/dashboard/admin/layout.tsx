@@ -1,4 +1,4 @@
-import { SideBar } from "@/components/admin/side-bar";
+import { SideBar } from "@/components/admins/admin-side-bar-phone";
 import { ModeToggle } from "@/components/ui/mode";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
@@ -33,8 +33,8 @@ export default async function RootLayout({
           <SideMenu />
         </div>
       <div className="w-full bg-muted h-screen overflow-x-hidden  flex relative justify-start items-start gap-3 flex-col col-span-11 lg:col-span-9 ">
-         <SearchBar />
         <PathLine />
+         <SearchBar />
         <div className="flex absolute">
         <Toaster />
         </div>
