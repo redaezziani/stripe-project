@@ -38,6 +38,26 @@ const Transaction = () => {
             </div>,
         },
         {
+            accessorKey: 'name',
+            header: 'Name',
+            cell: ({ row }: { row: any }) =>
+            <div
+            className=" text-muted-foreground"
+            >
+                {row.getValue('name')}
+            </div>,
+        },
+        {
+            accessorKey: 'phone',
+            header: 'Phone',
+            cell: ({ row }: { row: any }) =>
+            <div
+            className=" text-muted-foreground"
+            >
+                {row.getValue('phone')}
+            </div>,  
+        },
+        {
             accessorKey: 'amount',
             header: 'Amount',
             cell: ({ row }: { row: any }) =>

@@ -55,11 +55,7 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
         }
 
         // get the total of each transaction type for the user
-        const transaction= await db.transaction.findMany({
-            where: {
-                userId: user?.payload.id as string
-            }
-        });
+        const transaction= await db.transaction.findMany();
 
         transaction.forEach((t) => {
             if (t.type === 'REFUND') {

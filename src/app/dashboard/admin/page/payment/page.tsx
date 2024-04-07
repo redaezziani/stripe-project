@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import Transaction from '@/components/admins/transactions'
-import DardsDataTransactions from '@/components/user/transactions-cards'
+import DardsDataTransactions from '@/components/admins/transactions-cards'
 import { GlobeLock } from 'lucide-react'
 import React from 'react'
 

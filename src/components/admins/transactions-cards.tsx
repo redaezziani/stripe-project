@@ -6,7 +6,8 @@ import DataCard from './data-card';
 //@ts-ignore
 const fetcher = (url) => fetch(url).then((res) => res.json());
 const DardsDataTransactions = () => {
-    const { data, error } = useSWR('/api/admin/transactions/analys-transactions', fetcher, { refreshInterval: 10000 });
+    const { data, error } = useSWR('/api/admin/transactions/analys-transactions', fetcher, { refreshInterval: 5200 });
+    console.log(data)
     return (
         <div className="w-full grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-3 ">
             {data && <>
@@ -21,7 +22,6 @@ const DardsDataTransactions = () => {
                     titel='Failed'
                     number={data?.data.FAILED}
                     type='faild'
-
                     descreption='This is the total number of failed transactions'
                 />
                 <DataCard
