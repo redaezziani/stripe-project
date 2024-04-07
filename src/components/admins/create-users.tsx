@@ -35,7 +35,7 @@ const CreateUser = () => {
     try {
       e.preventDefault()
       setLoading(true)
-      const res =await  fetch(`http://localhost:3000/api/admin/castomers`, {
+      const res =await  fetch(`/api/admin/castomers`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

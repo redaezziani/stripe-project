@@ -36,7 +36,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
            >
             {token}
           </p>
-          <a href={`http://localhost:3000/auth/verefication/${id}`} target="_blank">
+          <a href={`https://stripe-project-ten.vercel.app/auth/verefication/${id}`} target="_blank">
               Verify your email address
             </a>
           <hr />
