@@ -12,7 +12,10 @@ export const middleware= async (request: NextRequest) => {
     if (publicRoute.includes(path)) {
         return NextResponse.next();
     }
-    if (!isVerified && privateRoute.includes(path)) {
+    // regex for admin and user route
+    const adminregex = new RegExp(`^/dashboard/admin/.*$`);
+    const userregex = new RegExp(`^/dashboard/user/.*$`);
+    if (!isVerified && adminregex.test(path) || !isVerified && userregex.test(path)) {
         return NextResponse.redirect(new URL(REDIRECT_URL, request.nextUrl).toString());
     }
     if (isVerified && authRoute.includes(path)) {

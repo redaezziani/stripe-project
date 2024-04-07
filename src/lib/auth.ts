@@ -16,7 +16,7 @@ export const publicRoute = [
 
 export const privateRoute=[
     '/dashboard',
-    '/dashboard/user',
+    '/dashboard/user/page',
     '/dashboard/admin',
 ]
 
