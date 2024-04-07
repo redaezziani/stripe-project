@@ -1,5 +1,5 @@
 import SearchBar from "@/components/admin/search-bar";
-import { SideBar } from "@/components/admin/side-bar";
+import { SideBar } from "@/components/user/user-side-bar-phone";
 import SideMenu from "@/components/user/user-side-menu";
 import { ModeToggle } from "@/components/ui/mode";
 import type { Metadata } from "next";
