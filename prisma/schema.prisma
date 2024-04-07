@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
+  
+}
+
+model resetPasswordRequest {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  token     Int    @unique
+  expires   DateTime
+  userId    String    @unique @db.VarChar(36)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+model userVerificationRequest {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  token     String    @unique
+  expires   DateTime
+  userId    String    @unique @db.VarChar(36)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+
+model users {
+  id           String                   @id @default(uuid()) @db.VarChar(36)
+  email        String                   @unique
+  name         String?
+  password     String
+  role         String                   @default("user")
+  image        String?                  @default("")
+  isVerified   Boolean                  @default(false)
+  createdAt    DateTime                 @default(now())
+  updatedAt    DateTime                 @default(now()) @updatedAt
+  resetRequest resetPasswordRequest?
+  verification userVerificationRequest?
+  Notification Notification[]
+  Transaction  Transaction[]
+  @@index([email], map: "idx_user_email") 
+  @@index([name], map: "idx_user_name")
+  
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  ERROR
+}
+
+enum ActionType {
+  CREATE
+  UPDATE
+  DELETE
+  NONE
+}
+
+model Notification {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  title     String
+  message   String
+  type      NotificationType @default(INFO)
+  action    ActionType @default(NONE)
+  userId    String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+enum TransactionType {
+  REFUND
+  PAID
+  FAILED
+  CANCELLED
+}
+
+model Transaction {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  amount    Float
+  type      TransactionType @default(PAID)
+  userId    String
+  email     String
+  phone     String?
+  name      String?
+  code      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
