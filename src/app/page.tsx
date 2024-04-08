@@ -1,136 +1,142 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Lock } from 'lucide-react'
-import React from 'react'
+'use client';
+import Link from 'next/link';
+import React, { useRef } from 'react';
 
-const page = () => {
+const Page = () => {
+  
+
   return (
-    <div
-    className='w-full flex overflow-hidde p-2  bg-background min-h-screen    relative justify-center items-center gap-5 flex-col'
-    >
-      <main className=" w-full place-content-center place-items-center lg:max-w-7xl grid  grid-cols-6 ">
-        <div className="w-full gap-2 flex-col flex justify-start items-start col-span-6 lg:col-span-3">
-          <h3
-          className=' font-semibold text-slate-700 text-lg'
-          >
-            Apple vision pro
-          </h3>
-          <p
-          className=' text-2xl font-bold'
-          >
-            1489 $
-          </p>
-          <p
-          className='text-slate-600'
-          >
-            pre-order
-          </p>
-          <div className="w-72 aspect-square p-2 border border-slate-300/25 rounded flex justify-center items-center">
-          <img
-          className=' w-full aspect-square h-auto object-contain'
-          src="/product.png" alt="" />
-          </div>
+    <div className=' overflow-x-hidden'>
+      <div className=""></div>
 
-          <div className="flex mt-6 justify-start items-center gap-3">
-            <h4
-            className=' text-sm text-slate-500'
-            >
-              power by <b>Stripe</b> 
-            </h4>
-            {' '}
-            <h4
-            className=' text-sm text-slate-500'
-            >
-             Terms {' '} Privacy
-            </h4>
+      <header className="myheader transform -skew-y-12 bg-gradient-to-r from-pink-500 via-blue-400 to-yellow-300">
+
+        <div className=" lg:px-28 lg:py-4 px-2 py-2 bg-gradient-to-r from-purple-500 via-red-600 to-yellow-300">
+          <div className=" lg:px-28 lg:py-4 px-2 py-2  transform skew-y-12 ">
+            <nav>
+              <div className="flex justify-between text-white mt-40 lg:mt-28">
+
+                <div>
+                  <Link className="text-lg font-black" href="">stripe</Link>
+                </div>
+                <div className="lg:flex lg:justify-center lg:visible flex-none hidden">
+                  <div>
+                    <Link className="text-sm font-semibold px-4" href="">Products</Link>
+                  </div>
+                  <div>
+                    <Link className="text-sm font-semibold px-4" href="">Use cases</Link>
+                  </div>
+                  <div>
+                    <Link className="text-sm font-semibold px-4" href="">Developers</Link>
+                  </div>
+                  <div>
+                    <Link className="text-sm font-semibold px-4" href="">Company</Link>
+                  </div>
+                  <div>
+                    <Link className="text-sm font-semibold px-4" href="">Pricing</Link>
+                  </div>
+                </div>
+                <div>
+                  <Link
+                  href={'/auth/signin'}
+                  >
+                  <button
+                   className="flex bg-black py-2 px-4 text-sm bg-white bg-opacity-20 text-white rounded-full">
+                    Sign in
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </button></Link>
+                </div>
+              </div>
+            </nav>
+
+
+            <div className="lg:grid lg:grid-cols-2 block lg:px-30 lg:py-16 px-2 py-2">
+              <div className="">
+                <button
+                 className="flex bg-black mt-4 py-1 px-4 mb-4 bg-opacity-20 text-xs text-white rounded lg:rounded-full">
+                  Watch now • Sessions, our virtual conference, is on demand
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <h1 className="pt-10 mt-10 lg:text-7xl text-6xl py-10 lg:py-0 font-bold text-opacity-80 text-gray-900">Payments infrastructure for the internet</h1>
+              </div>
+
+              <div className="lg:visible invisible">
+                <img className="absolute ml-40" width="850" src="https://i.ibb.co/q9rV42S/sdas.png" alt="" />
+              </div>
+
+            </div>
           </div>
         </div>
-        <div className="w-full lg:w-[80%] gap-2 flex-col flex justify-start items-start col-span-6 lg:col-span-3">
-          <h3
-          className=' font-semibold text-slate-800 text-3xl'
-          >
-            Pay with card
-          </h3>
-          <div className="flex w-full mt-9 flex-col gap-4 justify-start items-start">
-            <Label
-            className='  font-semibold text-slate-800'
-            >
-            Email
-            </Label>
-            <Input
-            type='email'
-            placeholder=''
-            className=' w-full'
-            />
-          </div>
-          <Label
-            className=' mt-2  font-semibold text-slate-800'
-            >
-            Card Informations
-            </Label>
-          <div className="flex flex-col w-full justify-start items-start border rounded-lg">
-            
-            <div className="w-full flex p-0.5 justify-start items-center">
-            <input
-            type='text'
-            placeholder='1234 1234 1234 1234'
-            className=' w-[90%] p-2 focus:outline-none focus:ring-0'
-            />
-            <div className="flex gap-2">
-              <img
-              className='h-7 w-full'
-              src="/Visa.png" alt="" />
-              <img
-              className=' h-7 w-full'
-              src="/Mastercard.png" alt="" />
+
+      </header>
+
+      <main className="px-2 py-2 mt-4 lg:mt-12 ml-8 bg-white">
+        <div className="">
+          <div className="px-2 py-2 lg:px-28 lg:py-2 bg-white">
+            <div className="lg:grid lg:grid-cols-2 block">
+              <div className="">
+                <p className="pt-20 pr-20 text-gray-600">Millions of businesses of all sizes – from startups to large enterprises – use Stripe's software and APIs to accept payments, send payouts, and manage their businesses online. </p>
+                <div className="pt-10 flex">
+                  <button
+                  
+                  className="flex bg-gray-800 py-2 px-4 text-sm font-semibold text-white rounded-full">
+                    Start now
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <button 
+                   className="flex font-semibold  py-2 px-4 text-sm rounded-full">
+                    Contact sales
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
-            </div>
-            <div className="w-full flex border-t  p-0.5 justify-between items-center">
-              <input
-              className=' w-1/2 placeholder:capitalize  p-2 focus:outline-none focus:ring-0'
-              placeholder='MM / YY'
-              type="text" />
-              <input
-              className=' w-1/2 placeholder:capitalize border-l  p-2 focus:outline-none focus:ring-0'
-              placeholder='CCV'
-              type="text" />
-            </div>
+
           </div>
 
-          <div className="flex w-full mt-9 flex-col gap-4 justify-start items-start">
-            <Label
-            className='  font-semibold text-slate-800'
-            >
-            Card Name
-            </Label>
-            <Input
-            type='text'
-            placeholder=''
-            className=' w-full'
-            />
+          <div className="lg:grid lg:grid-cols-4 mt-20 lg:2 grid grid-cols-2 gap-x-32 gap-y-3 lg:px-20 lg:py-16">
+
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/31Fr6WV/Screen-Shot-2021-07-18-at-17-43-49.jpg" alt="" />
+            </div>
+
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/HxnpdsR/Screen-Shot-2021-07-18-at-17-43-55.jpg" alt="" />
+            </div>
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/JtPCF7V/Screen-Shot-2021-07-18-at-17-49-02.jpg" alt="" />
+            </div>
+
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/FqMTzD6/Screen-Shot-2021-07-18-at-17-49-06.jpg" alt="" />
+            </div>
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/3vmxNMh/Screen-Shot-2021-07-18-at-17-49-09.jpg" alt="" />
+            </div>
+
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/s5pNP4y/Screen-Shot-2021-07-18-at-17-49-12.jpg" alt="" />
+            </div>
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/wQXrYTL/Screen-Shot-2021-07-18-at-17-49-15.jpg" alt="" />
+            </div>
+
+            <div className="m-auto">
+              <img width="100" src="https://i.ibb.co/W6KWXNY/Screen-Shot-2021-07-18-at-17-49-18.jpg" alt="" />
+            </div>
           </div>
-          <div className="flex w-full mt-9 flex-col gap-4 justify-start items-start">
-            <Label
-            className='  font-semibold text-slate-800'
-            >
-              Phone number
-            </Label>
-            <Input
-            type='text'
-            placeholder=''
-            className=' w-full'
-            />
-          </div>
-          <Button
-          className=' w-full mt-6'
-          >
-            Pay 1489 $
-          </Button>
         </div>
-      </main>   
+      </main>
     </div>
   )
 }
 
-export default page
+export default Page;

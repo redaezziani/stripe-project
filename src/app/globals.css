@@ -51,7 +51,11 @@
     --ring: 224.3 76.3% 48%;
   }
 }
-
+.myheader {
+  height: 480px;
+  margin-top: -150px;
+  padding: 5% 20px; 
+}
 
 
 
