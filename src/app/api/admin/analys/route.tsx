@@ -25,7 +25,7 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
         }
         const transactionsNumber = await  db.transaction.count({
             where:{
-                userId:user.payload.id as string
+                type:'PAID'
             }
         })
         const totalAmount= await db.transaction.aggregate({
@@ -36,8 +36,6 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
                 amount:true
             }
         })
-        
-
         const totalDayAmount= await db.transaction.aggregate({
             where:{
                 createdAt:{

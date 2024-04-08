@@ -13,13 +13,13 @@ const DardsDataTransactions = () => {
             {data && <>
                 <DataCard
                     titel="Transactions"
-                    number={data?.data.transactionsNumber}
+                    number={data?.data?.transactionsNumber}
                     currency=''
                     descreption='Total number of transactions'
                 />
                 <DataCard
                     titel="Today"
-                    number={data?.data.totalDayAmount}
+                    number={data?.data?.totalDayAmount}
                     currency='USD'
                     descreption='Total amount of transactions today'
                 />
@@ -32,7 +32,7 @@ const DardsDataTransactions = () => {
                 /> 
                  <DataCard
                     titel="Total Users"
-                    number={data?.data.totalUsers}
+                    number={data?.data?.totalUsers}
                     currency=''
                     descreption='Total number of users'
                 /> 

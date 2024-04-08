@@ -6,10 +6,12 @@ import { restPassword } from "@/(db)/(auth)/user-actions";
 import { ShieldAlert } from "lucide-react";
 import AlertMessage from "@/components/for-all/alert-message";
 import { GiSuckeredTentacle } from "react-icons/gi";
+import { useRouter } from "next/navigation";
 export default function  RestPasswordPageData (params: any) {
   const [passowrd , setPassowrd] = useState('')
   const [confirmPassword , setConfirmPassword] = useState('')
   const [isLoading , setIsLoading] = useState(false)
+  const router = useRouter()
   const [resErr, setResErr] = useState({
     status: '',
     message: ''
@@ -35,6 +37,10 @@ export default function  RestPasswordPageData (params: any) {
           status: response.status,
           message: response.message
         })
+        // after 3 seconds
+        setTimeout(() => {
+          router.push('/auth/signin')
+        }, 3000)
       }
       else {
         setResErr({

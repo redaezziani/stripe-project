@@ -12,27 +12,27 @@ const DardsDataTransactions = () => {
             {data && <>
                 <DataCard
                     titel="Paid"
-                    number={data?.data.PAID}
+                    number={data?.data?.PAID}
                     type='paid'
 
                     descreption='This is the total number of paid transactions'
                 />
                 <DataCard
                     titel='Failed'
-                    number={data?.data.FAILED}
+                    number={data?.data?.FAILED}
                     type='faild'
 
                     descreption='This is the total number of failed transactions'
                 />
                 <DataCard
                     titel="Refund"
-                    number={data?.data.REFUND}
+                    number={data?.data?.REFUND}
                     type='refund'
                     descreption='This is the total number of refund transactions'
                 /> 
                 <DataCard
                     titel='Cancelled'
-                    number={data?.data.CANCELLED}
+                    number={data?.data?.CANCELLED}
                     type='none'
 
                     descreption='This is the total number of cancelled transactions'

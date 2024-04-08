@@ -46,6 +46,9 @@ model users {
   verification userVerificationRequest?
   Notification Notification[]
   Transaction  Transaction[]
+  PaymentLink  PaymentLink[]
+  BankTransfer BankTransfer[]
+  AccountMony  AccountMony[]
   @@index([email], map: "idx_user_email") 
   @@index([name], map: "idx_user_name")
   
@@ -97,4 +100,46 @@ model Transaction {
   updatedAt DateTime  @updatedAt
   deletedAt DateTime?
   user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+model PaymentLink {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  userId    String    @db.VarChar(36)
+  productId String
+  amount    Float
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+
+model AccountMony {
+  id        String    @id @default(uuid()) @db.VarChar(36)
+  userId    String    @db.VarChar(36)
+  hold      Float     @default(0)
+  balance   Float     @default(0)
+  withdaw   Float     @default(0)
+  complet   Float     @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+  user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
+}
+
+enum BankTransferStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+model BankTransfer {
+  id           String    @id @default(uuid()) @db.VarChar(36)
+  userId       String    @db.VarChar(36)
+  amount       Float
+  status       BankTransferStatus @default(PENDING)
+  bankAccount  String     @default("")
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  deletedAt    DateTime?
+  user         users     @relation(fields: [userId], references: [id],onDelete: Cascade)
 }
