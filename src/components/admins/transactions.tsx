@@ -80,7 +80,7 @@ const Transaction = () => {
         },
         {
             accessorKey: 'code',
-            header: 'Code',
+            header: 'Transaction Id',
             cell: ({ row }: { row: any }) =>
             <div
             className=" text-muted-foreground"

@@ -29,7 +29,7 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
         if (!user) {
             return Response.json({ status: 'error', message: 'User not found' });
         }
-        
+       
         const transaction = await db.transaction.findMany({
             where: {
                 userId: user?.payload.id as string
