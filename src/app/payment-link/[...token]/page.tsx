@@ -10,7 +10,7 @@ interface Data {
   amount: number;
   currency: string;
 }
-const page = ({...params}) => {
+const PaymentPage = (params: any) => {
   const [data, setData] = React.useState<Data | null>(null)
   const getData = async () => {
     try {
@@ -166,4 +166,4 @@ const page = ({...params}) => {
   )
 }
 
-export default page
+export default PaymentPage
