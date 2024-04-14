@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster"
 import Link from "next/link";
 export const metadata: Metadata = {
-  title: "Auth website",
-  description: "Auth website layout",
+  title: "Payment Gateway | ipsepay",
+  description: "A payment gateway for all your online transactions",
 };
 
 export default async function RootLayout({

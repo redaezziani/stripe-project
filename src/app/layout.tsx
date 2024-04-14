@@ -9,8 +9,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "E-commerce-Store",
-  description: "Next js E-commerce store",
+  title: "Payment Gateway | ipsepay",
+  description: "A payment gateway for all your online transactions",
 };
 
 export default async function RootLayout({

@@ -32,31 +32,3 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
     }
 }
 
-export async function DELETE(req: NextRequest, res: NextResponse): Promise<void | Response> {
-    try {
-        const token = req.cookies.get('token')?.value
-        if (!token) {
-            return Response.json({ status: 'error', message: 'No token found' });
-        }
-        const user = await verifyToken(token);
-        if (!user || user?.payload.role !== 'admin') {
-            return Response.json({ status: 'error', message: 'User not found' });
-        }
-        const { id } = await req.json();
-        const transaction = await db.transaction.delete({
-            where: {
-                id: id as string
-            }
-        })
-        return Response.json({ status: 'success', data: transaction, message: 'transaction deleted' });
-    }
-    catch (error) {
-        console.error(error);
-        return Response.json({ status: 'error', message: 'An error occurred while processing your request.' });
-    }
-}
-
-
-
-
-

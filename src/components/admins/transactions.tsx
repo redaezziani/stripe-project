@@ -65,7 +65,7 @@ const Transaction = () => {
             className=" text-muted-foreground"
             
             >
-                {row.getValue('amount')} USD
+                {row.getValue('amount')} €
             </div>,
         },
         {

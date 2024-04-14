@@ -2,13 +2,12 @@ import { SideBar } from "@/components/admins/admin-side-bar-phone";
 import { ModeToggle } from "@/components/ui/mode";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import { PathLine } from "@/components/admins/admin-path-line";
 import SideMenu from "@/components/admins/admin-side-menu";
 import SearchBar from "@/components/admin/search-bar";
 
 export const metadata: Metadata = {
-  title: "hunter",
-  description: "Next js Scraping web site"
+  title: "Payment Gateway | ipsepay",
+  description: "A payment gateway for all your online transactions",
 };
 
 export default async function RootLayout({
@@ -33,7 +32,7 @@ export default async function RootLayout({
           <SideMenu />
         </div>
       <div className="w-full bg-muted h-screen overflow-x-hidden  flex relative justify-start items-start gap-3 flex-col col-span-11 lg:col-span-9 ">
-        <PathLine />
+      <div className="mt-20"></div>
          <SearchBar />
         <div className="flex absolute">
         <Toaster />

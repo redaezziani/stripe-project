@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "hunter",
-  description: "Next js Scraping web site"
+  title: "Payment Gateway | ipsepay",
+  description: "A payment gateway for all your online transactions",
 };
 
 export default async function RootLayout({

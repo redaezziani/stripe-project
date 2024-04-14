@@ -132,7 +132,7 @@ export function UserProfile() {
             </DropdownMenuItem>
           </Link>
 
-          <Link href="/dashboard/profile">
+          <Link href={user?.data?.role === 'admin' ? '/dashboard/admin/page/profile' : '/dashboard/user/page/profile'}>
             <DropdownMenuItem
               className="  cursor-pointer text-destructive-500 justify-between w-full flex gap-2 items-center"
 

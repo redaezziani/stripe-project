@@ -28,8 +28,8 @@ const SideMenu = () => {
                 />
                 
                 <SideItem
-                title='setting'
-                path='/dashboard/user/page/setting'
+                title='profile'
+                path='/dashboard/user/page/profile'
                 icon={<Settings className='w-4 h-4'/>}
                 />
                 <SideItem

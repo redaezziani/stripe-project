@@ -70,7 +70,9 @@ export async function POST(req: NextRequest, res: NextResponse): Promise<void | 
         })
         // update the user account balance
         //@ts-ignore
-        console.log(userAccount?.balance - parseFloat(amount))
+        if (userAccount?.balance < parseFloat(amount)) {
+            return Response.json({ status: 'error', message: 'Insufficient balance' });
+        }
         const account = await db.accountMony.update({
             data: {
                 // @ts-ignore
@@ -78,6 +80,17 @@ export async function POST(req: NextRequest, res: NextResponse): Promise<void | 
             },
             where: {
                 id: userAccount?.id as string             
+            }
+        })
+
+        // lets update the user account widraw 
+        const accountWidraw = await db.accountMony.update({
+            data: {
+                // @ts-ignore
+                withdaw: userAccount?.withdaw + parseFloat(amount)
+            },
+            where: {
+                id: userAccount?.id as string
             }
         })
         

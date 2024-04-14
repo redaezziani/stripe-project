@@ -101,11 +101,17 @@ model Transaction {
   deletedAt DateTime?
   user      users     @relation(fields: [userId], references: [id],onDelete: Cascade)
 }
-
+enum Currency {
+  USD
+  IQD
+  EUR
+  AED
+}
 model PaymentLink {
   id        String    @id @default(uuid()) @db.VarChar(36)
   userId    String    @db.VarChar(36)
   productId String
+  currency  Currency
   amount    Float
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -132,6 +138,8 @@ enum BankTransferStatus {
   SUCCESS
   FAILED
 }
+// usa and iraq and euro and emirates 
+
 model BankTransfer {
   id           String    @id @default(uuid()) @db.VarChar(36)
   userId       String    @db.VarChar(36)

@@ -9,6 +9,7 @@ export async function GET(req: NextRequest, res: NextResponse): Promise<void | R
       if (!token) {
         return Response.json({ status: 'error', message: 'No token found' });
     }
+   
     const user = await verifyToken(token);
     if (!user) {
         return Response.json({ status: 'error', message: 'User not found' });

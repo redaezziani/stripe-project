@@ -2,7 +2,7 @@
 import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
     images: {
-        domains: ["3asq.org"],
+        domains: ["payoues.com"],
     },
     };
 

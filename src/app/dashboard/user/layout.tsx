@@ -4,11 +4,10 @@ import SideMenu from "@/components/user/user-side-menu";
 import { ModeToggle } from "@/components/ui/mode";
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
-import { PathLine } from "@/components/user/user-path-line";
 
 export const metadata: Metadata = {
-  title: "hunter",
-  description: "Next js Scraping web site"
+  title: "Payment Gateway | ipsepay",
+  description: "A payment gateway for all your online transactions",
 };
 
 export default async function RootLayout({
@@ -34,7 +33,7 @@ export default async function RootLayout({
         </div>
       <div className="w-full bg-muted h-screen overflow-x-hidden  flex relative justify-start items-start gap-3 flex-col col-span-11 lg:col-span-9 ">
         <SearchBar />
-        <PathLine />
+        <div className="mt-20"></div>
         <div className="flex absolute">
         <Toaster />
         </div>
